@@ -1,14 +1,15 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0;
+    padding: 20px; /* Ajoute un peu d'espace autour */
     background-image: url('images/bercyfolies_fond_ecran.png');
     background-size: cover;
-    background-position: center;
-    height: 100vh;
+    background-position: left top; /* Ancre l'image en haut à gauche */
+    min-height: 100vh;
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-end; /* Aligne le contenu à droite */
+    align-items: flex-start;   /* Aligne le contenu en haut (pour éviter le centrage vertical) */
+    position: relative;        /* Permet un positionnement précis des enfants */
 }
 
 .login-container {
@@ -16,16 +17,40 @@ body {
     padding: 2rem;
     border-radius: 10px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 300px;
+    width: 250px;
     text-align: center;
-    margin-left: auto;
-    margin-right: 150px; /* Décale vers la droite */
-    margin-top: 250px;    /* Décale vers le bas */
+    margin-right: 150px;
+    margin-top: 350px;
+}
+
+/* Styles pour les tablettes (écrans entre 600px et 900px) */
+@media (max-width: 900px) {
+    .login-container {
+        width: 80%;
+        margin-right: 0;
+        margin-top: 20px;
     }
+}
+
+/* Styles pour les téléphones (écrans inférieurs à 600px) */
+@media (max-width: 600px) {
+    body {
+        background-size: auto 100vh;
+        justify-content: center; /* Centre le container sur mobile */
+    }
+
+    .login-container {
+        width: 90%;
+        margin-right: 0;
+        margin-top: 20px;
+        padding: 1.5rem;
+    }
+}
 
 .login-container h1 {
     color: #333;
     margin-bottom: 1.5rem;
+    font-size: 1.5rem;
 }
 
 .login-form input {
@@ -55,10 +80,13 @@ body {
 .show-password {
     display: flex;
     align-items: center;
+    justify-content: flex-start; /* Alignement à gauche */
+    gap: 8px; /* Espace entre la case et le texte */
     margin-bottom: 1rem;
-    justify-content: flex-start;
 }
 
-.show-password input {
-    margin-right: 0.5rem;
+.show-password input[type="checkbox"] {
+    margin: 0; /* Supprime les marges par défaut */
+    width: auto; /* Largeur automatique pour la case à cocher */
 }
+
