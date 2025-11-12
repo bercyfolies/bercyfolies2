@@ -1,51 +1,12 @@
-body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-image: url('images/bercyfolies_fond_ecran.png');
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    min-height: 100vh;
-}
-
-.dashboard-container {
+.dashboard-buttons {
+    position: absolute;
+    top: 450px;  /* Ajuste cette valeur selon la hauteur exacte du ruban bleu dans ton image */
+    left: 50%;  /* Pour centrer horizontalement */
+    transform: translateX(-25%);
+    width: 500px;  /* Ajuste selon la largeur souhaitée */
     display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-}
-
-header {
-    background-color: rgba(0, 123, 255, 0.8);
-    color: white;
-    padding: 10px 20px;
-    text-align: center;
-}
-
-.main-content {
-    flex: 1;
-    display: flex;
+    flex-wrap: wrap;
     justify-content: center;
-    align-items: center;
-    padding: 20px;
-}
-
-.content-area {
-    background-color: rgba(255, 255, 255, 0.8);
-    border-radius: 8px;
-    padding: 20px;
-    width: 80%;
-    max-width: 1200px;
-}
-
-.dashboard-section {
-    margin-bottom: 20px;
-}
-
-.container {
-    border: 1px solid #ccc;
+    gap: 15px;
     padding: 10px;
-    margin-top: 10px;
-    border-radius: 4px;
-    background-color: #f9f9f9;
 }

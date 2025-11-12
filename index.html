@@ -17,9 +17,19 @@
                 <label for="show-password">Afficher le mot de passe</label>
             </div>
             <button type="submit">Se connecter</button>
+            <span class="forgot-password" id="forgotPassword">Mot de passe oublié ?</span>
         </form>
     </div>
 
+        <!-- Modale pour la récupération -->
+    <div id="forgotPasswordModal" class="modal">
+        <h3>Récupération du mot de passe</h3>
+        <p>Un mot de passe provisoire sera envoyé par WhatsApp.</p>
+        <input type="text" id="phoneNumber" placeholder="Numéro de téléphone" class="modal-input">
+        <button id="sendWhatsApp" class="modal-button whatsapp-button">Envoyer</button>
+        <button id="cancelForgot" class="modal-button cancel-button">Annuler</button>
+    </div>
+    <script src="script.js"></script>
     <script>
         function togglePassword() {
             const passwordField = document.getElementById("password");
