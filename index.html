@@ -21,20 +21,15 @@
         </form>
     </div>
 
-        <!-- Modale pour la récupération -->
+    <!-- Modale pour la récupération -->
     <div id="forgotPasswordModal" class="modal">
         <h3>Récupération du mot de passe</h3>
         <p>Un mot de passe provisoire sera envoyé par WhatsApp.</p>
         <input type="text" id="phoneNumber" placeholder="Numéro de téléphone" class="modal-input">
+        <div id="message"></div>
         <button id="sendWhatsApp" class="modal-button whatsapp-button">Envoyer</button>
         <button id="cancelForgot" class="modal-button cancel-button">Annuler</button>
     </div>
     <script src="script.js"></script>
-    <script>
-        function togglePassword() {
-            const passwordField = document.getElementById("password");
-            passwordField.type = passwordField.type === "password" ? "text" : "password";
-        }
-    </script>
 </body>
 </html>
