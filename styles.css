@@ -1,56 +1,73 @@
+:root{
+    --bg-overlay: rgba(255,255,255,0.85);
+    --primary: #007BFF;
+}
+
+/* Box sizing global pour faciliter la responsivité */
+* {
+    box-sizing: border-box;
+}
+
+/* Typographie responsive */
+html {
+    font-size: clamp(15px, 1.2vw + 10px, 18px);
+}
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px; /* Ajoute un peu d'espace autour */
+    padding: 1.5rem;
     background-image: url('images/bercyfolies_fond_ecran.png');
     background-size: cover;
-    background-position: left top; /* Ancre l'image en haut à gauche */
+    background-position: center;
+    background-repeat: no-repeat;
     min-height: 100vh;
     display: flex;
-    justify-content: flex-end; /* Aligne le contenu à droite */
-    align-items: flex-start;   /* Aligne le contenu en haut (pour éviter le centrage vertical) */
-    position: relative;        /* Permet un positionnement précis des enfants */
+    align-items: center;    /* centre verticalement le contenu */
+    justify-content: center; /* centre horizontalement */
 }
 
 .login-container {
-    background-color: rgba(255, 255, 255, 0.8);
-    padding: 2rem;
+    background-color: var(--bg-overlay);
+    padding: 1.75rem;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-    width: 250px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    width: 320px;
+    max-width: 92%;
     text-align: center;
-    margin-right: 150px;
-    margin-top: 350px;
+    margin: 3.5rem auto 0; /* centré horizontalement, avec marge en haut */
 }
 
-/* Styles pour les tablettes (écrans entre 600px et 900px) */
+/* Tablettes et petits écrans : réduire et centrer */
 @media (max-width: 900px) {
     .login-container {
-        width: 80%;
-        margin-right: 0;
-        margin-top: 20px;
+        width: auto;
+        max-width: 80%;
+        margin: 2rem auto;
+        padding: 1.5rem;
     }
 }
 
-/* Styles pour les téléphones (écrans inférieurs à 600px) */
+/* Téléphones : plein écran avec marges internes */
 @media (max-width: 600px) {
     body {
-        background-size: auto 100vh;
-        justify-content: center; /* Centre le container sur mobile */
+        justify-content: center;
+        padding: 1rem;
+        background-size: cover; /* garde le cover pour éviter artefacts */
     }
 
     .login-container {
-        width: 90%;
-        margin-right: 0;
-        margin-top: 20px;
-        padding: 1.5rem;
+        width: 100%;
+        max-width: 420px;
+        margin: 1rem auto;
+        padding: 1.25rem;
     }
 }
 
 .login-container h1 {
     color: #333;
-    margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    font-size: clamp(1.2rem, 3.5vw, 2rem);
+    line-height: 1.15;
 }
 
 .login-form input {
@@ -60,17 +77,28 @@ body {
     border: 1px solid #ccc;
     border-radius: 5px;
     box-sizing: border-box;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
 .login-form button {
     width: 100%;
-    padding: 0.75rem;
-    background-color: #007BFF;
+    padding: 0.8rem;
+    background-color: var(--primary);
     color: white;
     border: none;
-    border-radius: 5px;
+    border-radius: 6px;
     cursor: pointer;
-    font-size: 1rem;
+    font-size: clamp(0.9rem, 4vw, 1.1rem);
+}
+
+/* Overlay léger pour atténuer les zones d'image trop claires */
+body::after {
+    content: '';
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    background: linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.04));
+    mix-blend-mode: multiply;
 }
 
 .login-form button:hover {
@@ -80,8 +108,8 @@ body {
 .show-password {
     display: flex;
     align-items: center;
-    justify-content: flex-start; /* Alignement à gauche */
-    gap: 8px; /* Espace entre la case et le texte */
+    justify-content: flex-start;
+    gap: 8px;
     margin-bottom: 1rem;
 }
 
@@ -114,6 +142,7 @@ body {
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
     z-index: 100;
     text-align: center;
+    width: min(420px, 92%);
 }
 
 .modal-input {

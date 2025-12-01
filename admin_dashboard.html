@@ -4,51 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tableau de bord Administrateur - Bercy Folie's</title>
-      <link rel="stylesheet" href="admin_styles.css">
-    <style>
-        body, html {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            font-family: Arial, sans-serif;
-            background-image: url('images/bercyfolies_fond_ecran.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            position: relative;  /* Nécessaire pour le positionnement absolu des enfants */
-        }
-
-        .dashboard-buttons {
-            position: absolute;
-            top: 400px;
-            left: 70%;
-            transform: translateX(-50%);
-            width: 500px;
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px;
-        }
-
-        .dashboard-button {
-            background-color: rgba(0, 200, 255, 0.7);
-            color: white;
-            border: none;
-            padding: 12px 24px;
-            font-size: 1em;
-            border-radius: 8px;
-            cursor: pointer;
-            transition: background-color 0.3s;
-        }
-
-        .dashboard-button:hover {
-            background-color: rgba(0, 150, 255, 0.9);
-        }
-    </style>
+    <link rel="stylesheet" href="admin_styles.css">
 </head>
 <body>
-    <div class="dashboard-buttons">
+    <div class="dashboard-wrapper">
+        <div class="dashboard-buttons">
         <button class="dashboard-button">Gestion des utilisateurs</button>
         <button class="dashboard-button">Planning médecins</button>
         <button class="dashboard-button">Contrats</button>
@@ -59,6 +19,7 @@
         <button class="dashboard-button">Remplaçants</button>
         <button class="dashboard-button">Coordonnées IADES</button>
         <button class="dashboard-button">Rémunérations IADES</button>
+        </div>
     </div>
 </body>
 </html>

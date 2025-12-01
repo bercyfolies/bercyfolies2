@@ -1,12 +1,69 @@
 .dashboard-buttons {
-    position: absolute;
-    top: 450px;  /* Ajuste cette valeur selon la hauteur exacte du ruban bleu dans ton image */
-    left: 50%;  /* Pour centrer horizontalement */
-    transform: translateX(-25%);
-    width: 500px;  /* Ajuste selon la largeur souhaitée */
+    /* Utiliser un positionnement fluide plutôt qu'absolu pour la responsivité */
+    position: relative;
+    width: min(1100px, 92%);
+    margin: 2rem auto;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 15px;
     padding: 10px;
+}
+
+.dashboard-wrapper {
+    max-width: 1100px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.dashboard-button {
+    background-color: rgba(0, 200, 255, 0.85);
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    font-size: clamp(0.9rem, 3vw, 1.1rem);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    flex: 1 1 180px; /* flexible, prendra au moins 180px */
+    min-width: 140px;
+    max-width: 320px;
+    text-align: center;
+}
+
+.dashboard-button:hover {
+    background-color: rgba(0, 150, 255, 0.95);
+}
+
+/* Responsive: sur petits écrans, empile les boutons */
+@media (max-width: 700px) {
+    .dashboard-buttons {
+        position: static;
+        transform: none;
+        display: flex;
+        flex-direction: column;
+        align-items: stretch;
+        padding: 1rem;
+        gap: 10px;
+    }
+
+    .dashboard-button {
+        width: 100%;
+        flex: none;
+        min-width: 0;
+    }
+}
+
+/* Body background / layout, déplacé ici afin d'éviter les styles inline */
+html, body {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    font-family: Arial, sans-serif;
+    background-image: url('images/bercyfolies_fond_ecran.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
 }
