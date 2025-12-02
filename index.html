@@ -7,18 +7,21 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="login-container">
-        <h1>BIENVENUE SUR<br>BERCY FOLIE'S</h1>
-        <form class="login-form">
-            <input type="tel" placeholder="Téléphone" required>
-            <input type="password" placeholder="Mot de passe" id="password" required>
-            <div class="show-password">
-                <input type="checkbox" onclick="togglePassword()">
-                <label for="show-password">Afficher le mot de passe</label>
-            </div>
-            <button type="submit">Se connecter</button>
-            <span class="forgot-password" id="forgotPassword">Mot de passe oublié ?</span>
-        </form>
+    <!-- Zone claire contenant le login -->
+    <div class="zone-claire">
+        <div class="login-container">
+            <h1>BIENVENUE SUR<br>BERCY FOLIE'S</h1>
+            <form class="login-form">
+                <input type="tel" placeholder="Téléphone" required>
+                <input type="password" placeholder="Mot de passe" id="password" required>
+                <div class="show-password">
+                    <input type="checkbox" id="show-password">
+                    <label for="show-password">Afficher le mot de passe</label>
+                </div>
+                <button type="submit">Se connecter</button>
+                <span class="forgot-password" id="forgotPassword">Mot de passe oublié ?</span>
+            </form>
+        </div>
     </div>
 
     <!-- Modale pour la récupération -->
@@ -30,6 +33,7 @@
         <button id="sendWhatsApp" class="modal-button whatsapp-button">Envoyer</button>
         <button id="cancelForgot" class="modal-button cancel-button">Annuler</button>
     </div>
+
     <script src="script.js"></script>
 </body>
 </html>

@@ -1,31 +1,44 @@
-:root{
+:root {
     --bg-overlay: rgba(255,255,255,0.85);
     --primary: #007BFF;
 }
 
-/* Box sizing global pour faciliter la responsivité */
 * {
     box-sizing: border-box;
 }
 
-/* Typographie responsive */
 html {
     font-size: clamp(15px, 1.2vw + 10px, 18px);
 }
+
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 1.5rem;
+    padding: 0;
     background-image: url('images/bercyfolies_fond_ecran.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
     min-height: 100vh;
-    display: flex;
-    align-items: center;    /* centre verticalement le contenu */
-    justify-content: center; /* centre horizontalement */
+    position: relative;
 }
 
+/* Zone claire en bas à droite */
+.zone-claire {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 55%;   /* ajuste selon ton image */
+    height: 25%;  /* ajuste selon ton image */
+    background: rgba(0, 0, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    padding: 1em;
+}
+
+/* Login container centré dans la zone */
 .login-container {
     background-color: var(--bg-overlay);
     padding: 1.75rem;
@@ -34,33 +47,7 @@ body {
     width: 320px;
     max-width: 92%;
     text-align: center;
-    margin: 3.5rem auto 0; /* centré horizontalement, avec marge en haut */
-}
-
-/* Tablettes et petits écrans : réduire et centrer */
-@media (max-width: 900px) {
-    .login-container {
-        width: auto;
-        max-width: 80%;
-        margin: 2rem auto;
-        padding: 1.5rem;
-    }
-}
-
-/* Téléphones : plein écran avec marges internes */
-@media (max-width: 600px) {
-    body {
-        justify-content: center;
-        padding: 1rem;
-        background-size: cover; /* garde le cover pour éviter artefacts */
-    }
-
-    .login-container {
-        width: 100%;
-        max-width: 420px;
-        margin: 1rem auto;
-        padding: 1.25rem;
-    }
+    margin: 0;
 }
 
 .login-container h1 {
@@ -76,7 +63,6 @@ body {
     margin-bottom: 1rem;
     border: 1px solid #ccc;
     border-radius: 5px;
-    box-sizing: border-box;
     font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
@@ -91,16 +77,6 @@ body {
     font-size: clamp(0.9rem, 4vw, 1.1rem);
 }
 
-/* Overlay léger pour atténuer les zones d'image trop claires */
-body::after {
-    content: '';
-    position: fixed;
-    inset: 0;
-    pointer-events: none;
-    background: linear-gradient(rgba(255,255,255,0.02), rgba(0,0,0,0.04));
-    mix-blend-mode: multiply;
-}
-
 .login-form button:hover {
     background-color: #0056b3;
 }
@@ -111,11 +87,6 @@ body::after {
     justify-content: flex-start;
     gap: 8px;
     margin-bottom: 1rem;
-}
-
-.show-password input[type="checkbox"] {
-    margin: 0; /* Supprime les marges par défaut */
-    width: auto; /* Largeur automatique pour la case à cocher */
 }
 
 .forgot-password {
@@ -130,6 +101,7 @@ body::after {
     color: #0088cc;
 }
 
+/* Modale */
 .modal {
     display: none;
     position: fixed;
